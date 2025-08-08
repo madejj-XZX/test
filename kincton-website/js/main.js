@@ -1,24 +1,89 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // 移动端菜单切换
+/**
+ * HTML组件加载器
+ * 使用方式：在HTML中添加 <div data-component="header"></div> 这样的占位元素
+ */
+class ComponentLoader {
+  constructor() {
+    this.components = {};
+    this.loaded = false;
+  }
+  
+  // 注册组件
+  register(name, url) {
+    this.components[name] = { url, content: null };
+  }
+  
+  // 加载所有组件
+  async loadAll() {
+    const promises = [];
+    
+    for (const [name, component] of Object.entries(this.components)) {
+      promises.push(
+        fetch(component.url)
+          .then(res => {
+            if (!res.ok) throw new Error(`Failed to load ${name}`);
+            return res.text();
+          })
+          .then(html => {
+            this.components[name].content = html;
+            console.log(`Component loaded: ${name}`);
+          })
+          .catch(err => console.error(`Error loading ${name}:`, err))
+      );
+    }
+    
+    await Promise.all(promises);
+    this.loaded = true;
+    this.renderAll();
+  }
+  
+  // 渲染所有组件
+  renderAll() {
+    if (!this.loaded) return;
+    
+    document.querySelectorAll('[data-component]').forEach(el => {
+      const name = el.getAttribute('data-component');
+      if (this.components[name]) {
+        el.innerHTML = this.components[name].content;
+      }
+    });
+    
+    // 触发自定义事件通知组件已加载
+    document.dispatchEvent(new CustomEvent('componentsLoaded'));
+  }
+}
+
+// 创建全局组件加载器实例
+window.componentLoader = new ComponentLoader();
+
+// 注册组件（使用绝对路径避免部署问题）
+componentLoader.register('header', '/components/header.html');
+componentLoader.register('footer', '/components/footer.html');
+
+/**
+ * 初始化所有页面交互逻辑
+ */
+function initApp() {
+  // ===== 移动端菜单切换 =====
   const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
   const mobileNav = document.querySelector('.mobile-nav');
   const mobileNavClose = document.querySelector('.mobile-nav-close');
   
   if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener('click', function() {
+    mobileMenuBtn.addEventListener('click', () => {
       mobileNav.classList.add('active');
       document.body.style.overflow = 'hidden';
     });
     
-    mobileNavClose.addEventListener('click', function() {
+    mobileNavClose.addEventListener('click', () => {
       mobileNav.classList.remove('active');
       document.body.style.overflow = '';
     });
   }
-  
-  // 移动端下拉菜单
+
+  // ===== 移动端下拉菜单 =====
   document.querySelectorAll('.mobile-nav-link').forEach(link => {
-    if (link.nextElementSibling && link.nextElementSibling.classList.contains('mobile-dropdown-menu')) {
+    if (link.nextElementSibling?.classList.contains('mobile-dropdown-menu')) {
       link.addEventListener('click', function(e) {
         e.preventDefault();
         const dropdown = this.nextElementSibling;
@@ -42,109 +107,79 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
-  
-  // 视频自动播放
-  const heroVideo = document.querySelector('.hero-video');
-  if (heroVideo) {
-    heroVideo.muted = true;
-    const playPromise = heroVideo.play();
-    
-    if (playPromise !== undefined) {
-      playPromise.catch(e => {
-        heroVideo.poster = 'assets/img/hero-fallback.jpg';
-        heroVideo.load();
+
+  // ===== 语言切换功能 =====
+  const langBtns = document.querySelectorAll('.lang-btn');
+  if (langBtns.length > 0) {
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        langBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        switchLanguage(this.dataset.lang);
       });
-    }
+    });
+
+    // 初始化语言（默认中文）
+    const preferredLang = localStorage.getItem('preferredLang') || 'zh';
+    document.querySelector(`.lang-btn[data-lang="${preferredLang}"]`)?.click();
   }
-  
-  // 当前页面高亮
-  const currentPage = location.pathname.split('/').pop();
+
+  // ===== 当前页面导航高亮 =====
+  const currentPage = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
+    const linkPage = link.getAttribute('href').split('/').pop();
+    if (linkPage === currentPage) {
       link.classList.add('active');
-      
-      // 如果是下拉菜单项，也高亮父项
+      // 如果是下拉菜单项，高亮父项
       if (link.closest('.dropdown-content')) {
         link.closest('.nav-item').querySelector('.nav-link').classList.add('active');
       }
     }
   });
-  
-  // 导航栏滚动效果
+
+  // ===== 滚动时导航栏效果 =====
   const header = document.querySelector('.header');
-  window.addEventListener('scroll', function() {
-    header.classList.toggle('scrolled', window.scrollY > 50);
-  });
-});
-// 在main.js中添加
-document.addEventListener('DOMContentLoaded', function() {
-  const langBtns = document.querySelectorAll('.lang-btn');
-  
-  langBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-      // 移除所有active类
-      langBtns.forEach(b => b.classList.remove('active'));
-      // 添加active类到当前按钮
-      this.classList.add('active');
-      
-      const lang = this.dataset.lang;
-      // 切换语言
-      switchLanguage(lang);
+  if (header) {
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
     });
-  });
-  
-  function switchLanguage(lang) {
-    // 获取所有需要翻译的元素
-    const elements = document.querySelectorAll('[data-zh], [data-en]');
-    
-    elements.forEach(el => {
-      if (el.hasAttribute(`data-${lang}`)) {
-        // 根据选择的语言显示对应文本
-        el.textContent = el.getAttribute(`data-${lang}`);
-      }
-    });
-    
-    // 也可以存储用户的语言偏好
-    localStorage.setItem('preferredLang', lang);
   }
-  
-  // 检查是否有存储的语言偏好
-  const preferredLang = localStorage.getItem('preferredLang') || 'zh';
-  document.querySelector(`.lang-btn[data-lang="${preferredLang}"]`).click();
-});
-document.querySelectorAll('.category-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    // 移除所有标签和内容面板的active类
-    document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.resource-pane').forEach(p => p.classList.remove('active'));
-    
-    // 为点击的标签添加active类
-    tab.classList.add('active');
-    
-    // 显示对应的内容面板
-    const category = tab.dataset.category;
-    document.querySelector(`.resource-pane[data-category="${category}"]`).classList.add('active');
+
+  // ===== 资源分类标签切换 =====
+  document.querySelectorAll('.category-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.resource-pane').forEach(p => p.classList.remove('active'));
+      
+      tab.classList.add('active');
+      const category = tab.dataset.category;
+      document.querySelector(`.resource-pane[data-category="${category}"]`)?.classList.add('active');
+    });
   });
-});
+}
 
+/**
+ * 语言切换函数
+ */
+function switchLanguage(lang) {
+  document.querySelectorAll('[data-zh], [data-en]').forEach(el => {
+    if (el.hasAttribute(`data-${lang}`)) {
+      el.textContent = el.getAttribute(`data-${lang}`);
+    }
+  });
+  localStorage.setItem('preferredLang', lang);
+}
 
-// 加载头部和页脚
-document.addEventListener('DOMContentLoaded', function() {
-  // 加载头部
-  fetch('../header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.body.insertAdjacentHTML('afterbegin', data);
-    });
-
-  // 加载页脚
-  fetch('../footer.html')
-    .then(response => response.text())
-    .then(data => {
-      document.body.insertAdjacentHTML('beforeend', data);
-      // 确保加载完成后初始化语言切换
-      if(typeof initLanguageSwitcher === 'function') {
-        initLanguageSwitcher();
-      }
-    });
+// ===== 页面初始化流程 =====
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. 先加载组件
+  componentLoader.loadAll().then(() => {
+    // 2. 组件加载完成后初始化交互逻辑
+    initApp();
+    
+    // 3. 调试用：确保导航栏已渲染
+    console.log('Header content:', document.querySelector('.header').innerHTML);
+  }).catch(err => {
+    console.error('Failed to load components:', err);
+  });
 });
