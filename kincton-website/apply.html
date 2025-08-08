@@ -1,0 +1,122 @@
+<head>
+  ...
+  <link rel="stylesheet" href="/css/styles.css">  <!-- 样式表往上一级 -->
+</head>
+
+<body>
+  <div class="header" data-component="header"></div>
+
+
+
+
+    <style>
+        /* 表单样式（保持您的Kincton风格） */
+        .kincton-form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: rgba(23, 42, 69, 0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #172a45;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            border-radius: 4px;
+            color: #ccd6f6;
+        }
+        .submit-btn {
+            background-color: transparent;
+            color: #64ffda;
+            border: 1px solid #64ffda;
+            padding: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .success-message {
+            display: none;
+            color: #64ffda;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="kincton-form">
+        <!-- 关键修改：添加隐藏的iframe用于提交 -->
+        <form id="googleForm" 
+              action="https://docs.google.com/forms/d/e/1FAIpQLSc-SYu6yJq-8PqmmzAenUNiqq0kjzDg_i936M3-QuiFMnFrEw/formResponse" 
+              method="POST"
+              target="hidden-iframe">
+            
+            <!-- 姓名 -->
+<div class="form-group">
+  <label data-zh="姓名 *" data-en="Name *">姓名 *</label>
+  <input type="text" name="entry.1189914921" required>
+</div>
+
+<!-- 类型 -->
+<div class="form-group">
+  <label data-zh="类型 *" data-en="Type *">类型 *</label>
+  <input type="text" name="entry.1309968230" required>
+</div>
+
+<!-- 邮箱 -->
+<div class="form-group">
+  <label data-zh="电子邮箱 *" data-en="Email *">电子邮箱 *</label>
+  <input type="email" name="entry.1065790239" required>
+</div>
+
+<button type="submit" class="submit-btn" id="submitBtn" data-zh="提交" data-en="Submit">提交</button>
+<div class="success-message" id="successMessage">
+  <span data-zh="✓ 提交成功！我们已收到您的信息。" data-en="✓ Submitted successfully! We have received your information.">✓ 提交成功！我们已收到您的信息。</span>
+</div>
+        </form>
+        
+        <!-- 隐藏的iframe用于接收提交响应 -->
+        <iframe name="hidden-iframe" style="display:none;"></iframe>
+    </div>
+
+    <script>
+        document.getElementById('googleForm').addEventListener('submit', function(e) {
+            const btn = document.getElementById('submitBtn');
+            btn.textContent = '提交中...';
+            btn.disabled = true;
+            
+            // 3秒后显示成功（确保表单已提交）
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'block';
+                btn.textContent = '提交';
+                btn.disabled = false;
+                this.reset(); // 重置表单
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer class="footer" data-component="footer"></footer>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>
