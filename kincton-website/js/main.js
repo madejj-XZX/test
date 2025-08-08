@@ -57,8 +57,8 @@ class ComponentLoader {
 window.componentLoader = new ComponentLoader();
 
 // 注册组件（使用绝对路径避免部署问题）
-componentLoader.register('header', '/components/header.html');
-componentLoader.register('footer', '/components/footer.html');
+componentLoader.register('header', 'header.html');
+componentLoader.register('footer', 'footer.html');
 
 /**
  * 初始化所有页面交互逻辑
