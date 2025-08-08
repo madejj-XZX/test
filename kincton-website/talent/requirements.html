@@ -4,106 +4,7 @@
 </head>
 
 <body>
-  <header class="header">
-    <div class="container nav-container">
-      <a href="../index.html" class="logo">KINCTON</a>  <!-- 首页往上一级 -->
-
-      <nav class="main-nav">
-        <ul class="nav-list">
-          <!-- 品牌合作 -->
-          <li class="nav-item">
-            <a href="../brand/cooperation.html" class="nav-link">
-              <span data-zh="品牌合作" data-en="Brand Cooperation"></span>
-              <i class="fas fa-chevron-down"></i>
-            </a>
-            <div class="dropdown-content">
-              <a href="../brand/services.html" data-zh="服务介绍" data-en="Service Introduction">
-                <span data-zh="服务介绍" data-en="Service Introduction"></span>
-              </a>
-              <a href="../brand/process.html" data-zh="流程说明" data-en="Process Description">
-                <span data-zh="流程说明" data-en="Process Description"></span>
-              </a>
-              <a href="../brand/cases/case-detail.html" data-zh="案例展示" data-en="Case Studies">
-                <span data-zh="案例展示" data-en="Case Studies"></span>
-              </a>
-            </div>
-          </li>
-
-          <!-- 达人招募 -->
-          <li class="nav-item">
-            <a href="recruitment.html" class="nav-link">  <!-- 同目录下文件，直接写文件名 -->
-              <span data-zh="达人招募" data-en="Talent Recruitment"></span>
-              <i class="fas fa-chevron-down"></i>
-            </a>
-            <div class="dropdown-content">
-              <a href="requirements.html" data-zh="申请条件" data-en="Requirements">
-                <span data-zh="申请条件" data-en="Requirements"></span>
-              </a>
-              <a href="benefits.html" data-zh="达人权益" data-en="Talent Benefits">
-                <span data-zh="达人权益" data-en="Talent Benefits"></span>
-              </a>
-              <a href="apply.html" data-zh="在线申请" data-en="Online Application">
-                <span data-zh="在线申请" data-en="Online Application"></span>
-              </a>
-            </div>
-          </li>
-
-          <!-- 其他导航项 -->
-          <li class="nav-item"><a href="../showcase.html" class="nav-link" data-zh="达人库" data-en="Talent Pool">达人库</a></li>
-          <li class="nav-item"><a href="../resources.html" class="nav-link" data-zh="资源中心" data-en="Resource Center">资源中心</a></li>
-          <li class="nav-item"><a href="../about.html" class="nav-link" data-zh="关于我们" data-en="About Us">关于我们</a></li>
-          <li class="nav-item"><a href="../contact.html" class="nav-link" data-zh="联系我们" data-en="Contact Us">联系我们</a></li>
-        </ul>
-      </nav>
-
-      <div class="language-switcher">
-        <button class="lang-btn active" data-lang="zh">中文</button>
-        <button class="lang-btn" data-lang="en">EN</button>
-      </div>
-
-      <button class="mobile-menu-btn">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-  </header>
-
-  <!-- 移动端导航菜单 -->
-  <div class="mobile-nav">
-    <button class="mobile-nav-close">
-      <i class="fas fa-times"></i>
-    </button>
-
-    <ul class="mobile-nav-menu">
-      <li class="mobile-nav-item">
-        <a href="#" class="mobile-nav-link">
-          <span data-zh="品牌合作" data-en="Brand Cooperation"></span> <i class="fas fa-chevron-down"></i>
-        </a>
-        <ul class="mobile-dropdown-menu">
-          <li><a href="../brand/services.html" class="mobile-dropdown-link" data-zh="服务介绍" data-en="Services">服务介绍</a></li>
-          <li><a href="../brand/process.html" class="mobile-dropdown-link" data-zh="流程说明" data-en="Process">流程说明</a></li>
-          <li><a href="../brand/cases/" class="mobile-dropdown-link" data-zh="案例展示" data-en="Case Studies">案例展示</a></li>
-        </ul>
-      </li>
-
-      <li class="mobile-nav-item">
-        <a href="#" class="mobile-nav-link">
-          <span data-zh="达人招募" data-en="Talent Recruitment"></span> <i class="fas fa-chevron-down"></i>
-        </a>
-        <ul class="mobile-dropdown-menu">
-          <li><a href="requirements.html" class="mobile-dropdown-link" data-zh="申请条件" data-en="Requirements">申请条件</a></li>
-          <li><a href="benefits.html" class="mobile-dropdown-link" data-zh="达人权益" data-en="Talent Benefits">达人权益</a></li>
-          <li><a href="apply.html" class="mobile-dropdown-link" data-zh="在线申请" data-en="Online Application">在线申请</a></li>
-        </ul>
-      </li>
-
-      <li class="mobile-nav-item"><a href="../showcase.html" class="mobile-nav-link" data-zh="达人库" data-en="Talent Pool">达人库</a></li>
-      <li class="mobile-nav-item"><a href="../resources.html" class="mobile-nav-link" data-zh="资源中心" data-en="Resource Center">资源中心</a></li>
-      <li class="mobile-nav-item"><a href="../about.html" class="mobile-nav-link" data-zh="关于我们" data-en="About Us">关于我们</a></li>
-      <li class="mobile-nav-item"><a href="../contact.html" class="mobile-nav-link" data-zh="联系我们" data-en="Contact Us">联系我们</a></li>
-    </ul>
-  </div>
-
-  </header>
+  <div class="header" data-component="header"></div>
 
 
 
@@ -113,59 +14,8 @@
 
 
 
-  <footer class="footer">
-<div class="container">
-  <div class="footer-grid">
-    <div class="footer-col">
-      <h3 class="footer-col-title">KINCTON</h3>
-      <p data-zh="全球化达人营销专家，助力品牌实现跨境增长" data-en="Global influencer marketing experts helping brands achieve cross-border growth">全球化达人营销专家，助力品牌实现跨境增长</p>
-    </div>
+<footer class="footer" data-component="footer"></footer>
 
-    <div class="footer-col">
-      <h3 class="footer-col-title" data-zh="品牌服务" data-en="Brand Services">品牌服务</h3>
-      <ul class="footer-links">
-        <li><a href="brand/services.html" class="footer-link" data-zh="服务介绍" data-en="Services">服务介绍</a></li>
-        <li><a href="brand/process.html" class="footer-link" data-zh="合作流程" data-en="Cooperation Process">合作流程</a></li>
-        <li><a href="brand/cases/" class="footer-link" data-zh="成功案例" data-en="Success Cases">成功案例</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h3 class="footer-col-title" data-zh="达人中心" data-en="Talent Center">达人中心</h3>
-      <ul class="footer-links">
-        <li><a href="requirements.html" class="footer-link" data-zh="申请条件" data-en="Requirements">申请条件</a></li>
-        <li><a href="benefits.html" class="footer-link" data-zh="达人权益" data-en="Talent Benefits">达人权益</a></li>
-        <li><a href="apply.html" class="footer-link" data-zh="在线申请" data-en="Online Application">在线申请</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h3 class="footer-col-title" data-zh="联系我们" data-en="Contact Us">联系我们</h3>
-      <ul class="footer-links">
-        <li>
-          <a href="mailto:contact@kincton.com" class="footer-link">
-            <i class="fas fa-envelope"></i> contact@kincton.com
-          </a>
-        </li>
-        <li>
-          <a href="tel:+8618150770759" class="footer-link">
-            <i class="fas fa-phone-alt"></i> +86 18150770759
-          </a>
-        </li>
-        <li>
-          <a href="#" class="footer-link">
-            <i class="fab fa-weixin"></i> <span data-zh="微信: Kairo8" data-en="WeChat: Kairo8">微信: Kairo8</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2025 KINCTON <span data-zh="厦门境策通信息科技有限公司" data-en="Xiamen Kincton Information Technology Co., Ltd.">厦门境策通信息科技有限公司</span>. <span data-zh="保留所有权利" data-en="All Rights Reserved">保留所有权利</span></p>
-  </div>
-</div>
-</footer>
 
   <script src="../js/main.js"></script>
 </body>
