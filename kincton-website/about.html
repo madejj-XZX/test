@@ -16,11 +16,475 @@
 
 
 
+    <title>关于我们 - 厦门境策通信息科技</title>
+    <style>
+       /* Base Styles */
+:root {
+    --primary-color: #FF6B3D;  /* 主色调 - 橙色 */
+    --secondary-color: #f0a401; /* 次要色调 - 黄色 */
+    --dark-color: #1a1a1a;     /* 深色 - 接近黑色 */
+    --light-color: #f8f9fa;    /* 浅色 - 接近白色 */
+    --accent-color: #b39f33;   /* 强调色 - 金色 */
+    --background-color: #121212; /* 深色背景 */
+    --card-bg: #1e1e1e;       /* 卡片背景色 */
+    --text-color: #ffffff;     /* 主要文字颜色 */
+}
 
+body {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+}
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
+/* Section Styles */
+.section {
+    padding: 80px 0;
+    position: relative;
+}
 
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--dark-color);
+}
 
+.section-title h2 {
+    font-size: 2.5rem;
+    margin: 0 0 15px;
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+    color: white;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--secondary-color);
+}
+
+.section-title p {
+    font-size: 1.2rem;
+    color: #6b7280; /* 中灰色 */
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Company Intro */
+.company-intro {
+    background: rgb(0, 0, 0);
+    padding-top: 60px;
+}
+
+.intro-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.intro-text {
+    flex: 1;
+}
+
+.intro-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.intro-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Timeline */
+.timeline-section {
+    background: var(--dark-color);
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-content {
+    padding: 20px;
+        background: var(--card-bg);
+    color: var(--text-color);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.timeline-content::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    top: 30px;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::after {
+    right: -10px;
+}
+
+.timeline-item:nth-child(even) .timeline-content::after {
+    left: -10px;
+}
+
+.timeline-year {
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+/* Team */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.team-member {
+      background: var(--card-bg);
+    color: var(--text-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    padding-top: 20px;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+     border: 2px solid rgb(238, 164, 4);
+}
+
+.member-image {
+    height: 250px;
+    background-color: #eee;
+    background-size: cover;
+    background-position: center;
+}
+
+.member-info {
+    padding: 25px;
+}
+
+.member-name {
+    font-size: 1.4rem;
+    margin: 0 0 5px;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.member-title {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.member-desc {
+    margin-bottom: 15px;
+    color: #4b5563; /* 深灰色 */
+}
+
+.member-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    justify-content: center;
+
+}
+
+.skill-tag {
+    background: #e5e7eb; /* 浅灰色 */
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--dark-color);
+}
+
+/* CTA */
+.cta-section {
+    background: linear-gradient(135deg, var(--primary-color), #1e40af);
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.cta-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.cta-desc {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.contact-info {
+    margin-top: 30px;
+}
+
+.contact-item {
+    margin-bottom: 10px;
+}
+
+/* Footer */
+.footer {
+    background: var(--dark-color);
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+}
+
+@media (max-width: 768px) {
+    .intro-content {
+        flex-direction: column;
+    }
+    
+    .timeline::before {
+        left: 31px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+    
+    .timeline-content::after {
+        left: 21px !important;
+    }
+}
+</style>
+</head>
+<body>
+    <!-- Company Introduction -->
+    <section class="section company-intro">
+        <div class="container">
+            <div class="section-title">
+                <h2>公司介绍</h2>
+                <p>COMPANY INTRODUCTION</p>
+            </div>
+            
+            <div class="intro-content">
+                <div class="intro-text">
+                    <p>境策通（Kincton）是一家专注服务中国出海品牌的海外整合营销公司，致力于用更专业的内容策略与更强落地力的执行系统，帮助客户在全球市场实现生意的真实增长。</p>
+                    <p>我们深耕北美、欧洲、拉美等重点市场，围绕红人营销、社媒内容、品牌传播、独立站流量、跨平台协同等多个维度，为跨境卖家、工贸企业、知名品牌等客户提供从0到1、及1到10的出海营销解决方案。</p>
+                    <p>境策通核心团队来自阿里巴巴、字节跳动、新浪团队的成员组成，成员平均拥有10年以上品牌出海、平台运营、内容增长与数字营销经验，擅长将战略规划、内容创意、营销投放与技术增长闭环落地，为出海品牌提供"从0到1、1到10"的全链路服务解决方案。</p>
+                    <p><strong>深入客户实际生意目标 协同客户团队共同推动全链路增长</strong></p>
+                </div>
+                <div class="intro-image">
+                    <!-- Placeholder for company image -->
+                    <img src="assets/images/cases/case1.jpg" alt="境策通团队">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development History -->
+    <section class="section timeline-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>发展历程</h2>
+                <p>DEVELOPMENT HISTORY</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2017年</div>
+                        <p>品牌策划工作室</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018年</div>
+                        <p>抖音官方MCN<br>
+                        短视频IP孵化<br>
+                        新媒体全渠道推广</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019-2022年</div>
+                        <p>淘宝MCN业务<br>
+                        品牌直播代运营<br>
+                        娱乐主播IP孵化<br>
+                        品牌直播顾问</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023-2024年</div>
+                        <p>YTB/INS/TT/FB跨平台运营<br>
+                        品牌社媒矩阵业务<br>
+                        红人营销矩阵业务<br>
+                        北美/欧洲/中东/东南亚市场<br>
+                        直播矩阵业务</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025年-至今</div>
+                        <p>中国出海企业的海外整合营销运营商</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Team -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心团队</h2>
+                <p>PROJECT CORE TEAM</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <h1 class="member-name2" >金色</h1>
+                    <div class="member-info">
+                        <h3 class="member-name">项目管理负责人</h3>
+                        <p class="member-title">用系统维护好客户，用程序实现增长</p>
+                        <p class="member-desc">拥有15年平台管理与实战经验，擅长将客户增长战略落地为可执行的组织节奏与系统流程。主动以多个0~1增长项目及数字化运营收项目，擅长多团队协同、资源整合与项目节奏控制。</p>
+                        <div class="member-skills">
+                            <span class="skill-tag">增长策略</span>
+                            <span class="skill-tag">项目管理</span>
+                            <span class="skill-tag">组织管理</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                      <h1 class="member-name2" >金色</h1>
+                    <div class="member-info">
+                        <h3 class="member-name">推广数据负责人</h3>
+                        <p class="member-title">让数据长负责人</p>
+                        <p class="member-desc">采用品牌电商及阿里体系运营10年，擅长以数据洞察驱动业务增长。近年来专注海外社群和IP与红人营销，精通多平台供应链与达人资源联动，构建"策略—内容—转化"的增长模式。</p>
+                        <div class="member-skills">
+                            <span class="skill-tag">红人投资</span>
+                            <span class="skill-tag">渠道专员</span>
+                            <span class="skill-tag">社群策略</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                      <h1 class="member-name2" >金色</h1>
+                    <div class="member-info">
+                        <h3 class="member-name">创意内容负责人</h3>
+                        <p class="member-title">用内容激发共性，让品牌真正走进用户心</p>
+                        <p class="member-desc">深耕内容创造与用户转化一线，具备强内容需求与能力与目标行为。省住新浪生活主题及抖音MCN负责人，擅长从用户端对社交传播内容理解，实现"看懂、记得住、愿意买"的效果更为有效。</p>
+                        <div class="member-skills">
+                            <span class="skill-tag">内容创意</span>
+                            <span class="skill-tag">用户转化</span>
+                            <span class="skill-tag">社交传播</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                      <h1 class="member-name2" >金色</h1>
+                    <div class="member-info">
+                        <h3 class="member-name">技术驱动负责人</h3>
+                        <p class="member-title">用技术助力企业发展，让增长变得更美好</p>
+                        <p class="member-desc">技术驱动创新者，省住职人员项目任取，具备电商、MCN、XR创业与多平台运营的效率。擅长工具驱动增长，为品牌打造可享有的渠道。</p>
+                        <div class="member-skills">
+                            <span class="skill-tag">独立站SEO</span>
+                            <span class="skill-tag">AI流量自动化</span>
+                            <span class="skill-tag">XR技术</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 40px; font-style: italic;">从平台到品牌，我们用实战经验推动客户在全球市场实现增长</p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">想要定制适合你品类与预算的出海营销方案？</h2>
+                <p class="cta-desc">欢迎与我们聊一聊</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">Tel: +86 130 5592 2339</div>
+                    <div class="contact-item">Email: Will.GUO@kincton.com</div>
+                    <div class="contact-item">Add: 厦门市火炬高新区软件园二期观日路18号101-8室</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
