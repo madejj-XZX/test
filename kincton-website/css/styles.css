@@ -1,6 +1,6 @@
 /* ===== 基础变量 ===== */
 :root {
-  --primary: #0A0B0D;
+  --primary: #000000;
   --secondary: #FF6B3D;
   --accent: #FFA372;
   --text: rgba(255, 255, 255, 0.92);
@@ -1705,4 +1705,55 @@ footer {
   .cta-section h2 {
     font-size: 20px;
   }
+}
+
+
+
+
+
+/* 服务卡片样式 */
+.homepage-sourcing-card {
+    background: linear-gradient(rgba(255,107,61,0.03), rgba(10,11,13,1)); /* 使用卡片背景色变量 */
+    padding: 60px 0;
+
+    margin: 40px auto;
+
+}
+
+.sourcing-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.sourcing-summary {
+    background: var(--card-bg); /* 使用卡片背景色变量 */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* 加深阴影增强层次感 */
+    transition: transform 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.08); /* 添加边框 */
+}
+
+.sourcing-summary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 107, 61, 0.2); /* 悬停时添加主题色阴影 */
+    border-color: rgba(255, 107, 61, 0.3); /* 悬停时边框高亮 */
+}
+
+.sourcing-summary h3 {
+    color: var(--secondary); /* 使用次要颜色变量 */
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.sourcing-summary h3 i {
+    margin-right: 10px;
+    color: var(--accent); /* 使用强调色变量 */
+}
+
+.sourcing-summary p {
+    color: var(--text-secondary); /* 使用次要文本颜色变量 */
+    line-height: 1.6;
 }

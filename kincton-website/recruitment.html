@@ -7,7 +7,7 @@
   <title data-zh="KINCTON - 全球化达人营销专家" data-en="KINCTON - Global Influencer Marketing Experts">KINCTON - 全球化达人营销专家</title>
   <meta name="description" data-zh="专业海外达人营销服务，连接全球KOL资源，助力品牌出海" data-en="Professional overseas influencer marketing services, connecting global KOL resources to help brands go global">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -62,6 +62,238 @@
       </div>
     </section>
   </main>
+
+
+
+
+
+
+
+<style>
+/* 新增流程图样式 */
+
+.process-flow {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 60px 0;
+}
+
+.process-flow:before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #c65f40;
+    z-index: 1;
+}
+
+.process-step-flow {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    flex: 1;
+}
+
+.step-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #FF6B3D;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 auto 15px;
+    border: 4px solid white;
+    box-shadow: 0 0 0 4px #FF6B3D;
+}
+
+.step-content {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin: 0 10px;
+    min-height: 180px;
+}
+
+.step-content h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.step-content p {
+    color: #666;
+    font-size: 14px;
+}
+
+.arrow-icon {
+    position: absolute;
+    top: 40px;
+    right: -15px;
+    color: #FF6B3D;
+    font-size: 24px;
+    transform: translateY(-50%);
+    background: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .process-flow {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .process-flow:before {
+        display: none;
+    }
+    
+    .process-step-flow {
+        margin-bottom: 30px;
+        width: 100%;
+    }
+    
+    .step-content {
+        min-height: auto;
+    }
+    
+    .arrow-icon {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="header" data-component="header"></div>
+
+<main class="benefits-page">
+<section class="benefits-hero" style="background: #000000; text-align: center;">
+<h1 data-zh="与中国品牌合作的完美桥梁" data-en="The Perfect Bridge to Chinese Brands">与中国品牌合作的完美桥梁</h1>
+<p data-zh="专注连接海外达人与优质中国品牌"
+data-en="Specialized in connecting global creators with premium Chinese brands">专注连接海外达人与优质中国品牌</p>
+</section>
+
+<!-- 修改后的流程图部分 -->
+<section class="section" style="background: #000000;">
+<div class="container">
+<h2 style="text-align: center; margin-bottom: 40px;" data-zh="简单五步完成合作"
+data-en="5 Simple Steps to Collaborate">简单五步完成合作</h2>
+
+<div class="process-flow">
+<div class="process-step-flow">
+    <div class="step-circle">1</div>
+    <div class="step-content">
+        <h3 data-zh="提交申请" data-en="Submit Application">提交申请</h3>
+        <p data-zh="填写达人资料，说明您的专长领域和内容风格" data-en="Complete your profile and specify your expertise">
+        填写达人资料，说明您的专长领域和内容风格</p>
+    </div>
+    <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
+</div>
+
+<div class="process-step-flow">
+    <div class="step-circle">2</div>
+    <div class="step-content">
+        <h3 data-zh="资质审核" data-en="Qualification Review">资质审核</h3>
+        <p data-zh="1-3 个工作日内完成账号审核" data-en="Account review completed in 1-3 business days">
+        1-3 个工作日内完成账号审核</p>
+    </div>
+    <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
+</div>
+
+<div class="process-step-flow">
+    <div class="step-circle">3</div>
+    <div class="step-content">
+        <h3 data-zh="匹配品牌" data-en="Brand Matching">匹配品牌</h3>
+        <p data-zh="我们根据您的定位推荐合适品牌和产品" data-en="We recommend suitable brands and products">
+        我们根据您的定位推荐合适品牌和产品</p>
+    </div>
+    <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
+</div>
+
+<div class="process-step-flow">
+    <div class="step-circle">4</div>
+    <div class="step-content">
+        <h3 data-zh="接收样品" data-en="Receive Samples">接收样品</h3>
+        <p data-zh="免费获取产品样品和创作指南" data-en="Get free products and content guidelines">免费获取产品样品和创作指南</p>
+    </div>
+    <div class="arrow-icon"><i class="fas fa-arrow-right"></i></div>
+</div>
+
+<div class="process-step-flow">
+    <div class="step-circle">5</div>
+    <div class="step-content">
+        <h3 data-zh="创作结算" data-en="Create & Earn">创作结算</h3>
+        <p data-zh="发布内容后按约定方式获得报酬" data-en="Get paid after content publication">发布内容后按约定方式获得报酬</p>
+    </div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 其他部分保持不变 -->
+<section class="section">
+<div class="container">
+<div class="section-title">
+<h2 data-zh="我们能提供的支持" data-en="Our Support Services">我们能提供的支持</h2>
+</div>
+
+<div class="benefits-grid">
+<div class="benefit-card">
+<div class="benefit-icon"><i class="fas fa-box-open"></i></div>
+<h3 data-zh="产品支持" data-en="Product Support">产品支持</h3>
+<ul>
+<li data-zh="免费样品全球寄送" data-en="Free global sample shipping">免费样品全球寄送</li>
+<li data-zh="专业选品建议" data-en="Product selection advice">专业选品建议</li>
+<li data-zh="产品信息资料包" data-en="Product information kit">产品信息资料包</li>
+</ul>
+</div>
+
+<div class="benefit-card">
+<div class="benefit-icon"><i class="fas fa-video"></i></div>
+<h3 data-zh="创作支持" data-en="Creation Support">创作支持</h3>
+<ul>
+<li data-zh="视频脚本建议" data-en="Video script suggestions">视频脚本建议</li>
+<li data-zh="拍摄要求指南" data-en="Shooting guidelines">拍摄要求指南</li>
+<li data-zh="品牌内容规范" data-en="Brand content standards">品牌内容规范</li>
+</ul>
+</div>
+
+<div class="benefit-card">
+<div class="benefit-icon"><i class="fas fa-hand-holding-usd"></i></div>
+<h3 data-zh="XXX支持" data-en="XXXXXX Support">XXX支持</h3>
+<ul>
+<li data-zh="XXXXXX" data-en="XXXXXX">XXXXXX</li>
+<li data-zh="XXXXXX" data-en="XXXXXX">XXXXXX</li>
+<li data-zh="XXXXXX" data-en="XXXXXX">XXXXXX</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cta-section">
+<h2 data-zh="立即加入全球创作者网络" data-en="Join Our Global Creator Network Now">立即加入全球创作者网络</h2>
+<a href="apply.html" class="cta-button" data-zh="开始申请" data-en="Apply Now">开始申请</a>
+<p style="margin-top: 20px;" data-zh="平均审核时间：3 个工作日" data-en="Average review time: 3 business days">
+平均审核时间：3 个工作日</p>
+</section>
+</main>
+
+<footer class="footer" data-component="footer"></footer>
+
+<script src="/js/main.js"></script>
+</body>
 
   <!-- 共享页脚 -->
  <footer class="footer" data-component="footer"></footer>
